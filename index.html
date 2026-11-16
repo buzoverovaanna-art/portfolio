@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анна Бузоверова — интернет-маркетолог</title>
+<meta name="description" content="Интернет-маркетолог: продвижение, заявки, CRM на Google-таблицах и системы из ИИ-агентов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2ECE1;
+    --paper-2:#EAE2D3;
+    --ink:#1C1A16;
+    --ink-soft:#4A453C;
+    --rust:#AD441F;
+    --line:#CFC4AF;
+    --serif:"Unbounded",sans-serif;
+    --body:"Golos Text",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;z-index:50;
+    opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+  /* ---------- top bar ---------- */
+  .top{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:26px 0 0;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);
+    animation:fade .7s ease both;
+  }
+  .top a{text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+  .top a:hover{border-color:var(--rust);color:var(--rust)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 56px;position:relative}
+  .hero::after{
+    content:"";
+    position:absolute;right:-140px;top:40px;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle at 40% 40%, rgba(173,68,31,.13), transparent 65%);
+    pointer-events:none;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:12px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rust);font-weight:500;margin-bottom:26px;
+    animation:fade .7s .05s ease both;
+  }
+  .kicker::before{content:"";width:34px;height:1px;background:var(--rust)}
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(44px,8.2vw,104px);
+    line-height:1.02;
+    letter-spacing:-.03em;
+    animation:rise .9s .08s cubic-bezier(.2,.7,.2,1) both;
+  }
+  h1 .thin{font-weight:400;color:var(--rust)}
+  .hero-sub{
+    max-width:620px;margin-top:30px;
+    font-size:19px;line-height:1.55;color:var(--ink-soft);
+    animation:rise .9s .18s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero-sub strong{color:var(--ink);font-weight:600}
+  .hero-actions{
+    display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;
+    animation:rise .9s .28s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 24px;border:1px solid var(--ink);border-radius:2px;
+    text-decoration:none;font-size:15px;font-weight:500;
+    transition:.22s ease;
+  }
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn.accent{background:var(--rust);border-color:var(--rust);color:#fff}
+  .btn.accent:hover{background:#8f3517;border-color:#8f3517}
+  .btn .arrow{transition:transform .22s}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* ---------- marquee strip ---------- */
+  .strip{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    font-family:var(--serif);
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-soft);white-space:nowrap;overflow:hidden;
+  }
+  .strip span{margin:0 22px}
+  .strip i{font-style:normal;color:var(--rust)}
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0;border-bottom:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start}
+  .label{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rust);font-weight:500;padding-top:8px;
+    position:sticky;top:32px;
+  }
+  .lead{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(24px,3.4vw,34px);line-height:1.28;
+    letter-spacing:-.015em;max-width:780px;
+  }
+  .text{max-width:700px;margin-top:24px;color:var(--ink-soft)}
+  .text p + p{margin-top:16px}
+
+  /* ---------- help list ---------- */
+  .help{list-style:none;margin-top:8px}
+  .help li{
+    display:grid;grid-template-columns:44px 1fr;gap:18px;
+    padding:22px 0;border-top:1px solid var(--line);
+  }
+  .help li:first-child{border-top:none;padding-top:0}
+  .help .n{
+    font-family:var(--serif);font-size:13px;color:var(--rust);
+    padding-top:5px;
+  }
+  .help b{display:block;font-size:19px;font-weight:600;margin-bottom:4px}
+  .help p{color:var(--ink-soft);font-size:16px}
+
+  /* ---------- cases ---------- */
+  .case{
+    display:grid;grid-template-columns:120px 1fr;gap:36px;
+    padding:40px 0;border-top:1px solid var(--line);
+    position:relative;
+  }
+  .case:first-of-type{border-top:none}
+  .case .num{
+    font-family:var(--serif);font-size:46px;line-height:1;font-weight:400;
+    color:var(--line);transition:color .3s;
+  }
+  .case:hover .num{color:var(--rust)}
+  .case h3{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(22px,2.6vw,28px);line-height:1.2;
+    letter-spacing:-.01em;margin-bottom:18px;
+  }
+  .case dl{display:grid;grid-template-columns:132px 1fr;gap:8px 20px;max-width:720px}
+  .case dt{
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);padding-top:4px;
+  }
+  .case dd{font-size:16.5px;color:var(--ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tags span{
+    font-size:12.5px;letter-spacing:.04em;
+    padding:5px 11px;border:1px solid var(--line);border-radius:100px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- facts (experience/education) ---------- */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .facts h3{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--rust);font-weight:500;margin-bottom:22px;
+  }
+  .fact{padding:16px 0;border-top:1px solid var(--line)}
+  .fact:first-of-type{border-top:none;padding-top:0}
+  .fact .when{font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+  .fact .what{font-weight:600;font-size:17px;margin-top:3px}
+  .fact .where{font-size:15px;color:var(--ink-soft)}
+
+  /* ---------- tools ---------- */
+  .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .tools span{
+    padding:9px 15px;background:var(--paper-2);
+    border:1px solid var(--line);border-radius:2px;
+    font-size:14.5px;
+  }
+
+  /* ---------- contact ---------- */
+  .contact{padding:96px 0 56px;border-bottom:none}
+  .contact h2{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(34px,6vw,64px);line-height:1.06;
+    letter-spacing:-.03em;max-width:820px;
+  }
+  .contact h2 em{font-style:normal;color:var(--rust)}
+  .contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+  .contact-note{margin-top:26px;font-size:14px;color:var(--ink-soft)}
+  footer{
+    padding:26px 0 40px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:13px;color:var(--ink-soft);
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* ---------- mobile ---------- */
+  @media (max-width:820px){
+    body{font-size:16px}
+    .wrap{padding:0 20px}
+    .hero{padding:48px 0 40px}
+    .grid{grid-template-columns:1fr;gap:22px}
+    .label{position:static;padding-top:0}
+    section{padding:60px 0}
+    .case{grid-template-columns:1fr;gap:10px}
+    .case .num{font-size:30px}
+    .case dl{grid-template-columns:1fr;gap:2px}
+    .case dt{padding-top:12px}
+    .facts{grid-template-columns:1fr;gap:36px}
+    .help li{grid-template-columns:32px 1fr;gap:12px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <span>Анна Бузоверова</span>
+    <a href="#contact">Связаться →</a>
+  </header>
+
+  <section class="hero" style="border:none;padding-top:72px">
+    <div class="kicker">Интернет-маркетолог · ИИ-агенты</div>
+    <h1>Анна<br>Бузо<span class="thin">верова</span></h1>
+    <p class="hero-sub">
+      Десять лет веду свой бизнес. Собираю маркетинг, который можно проверить:
+      сайт, поиск, заявки, <strong>CRM на Google-таблицах</strong> и
+      <strong>системы из ИИ-агентов</strong> — руками, в диалоге с ИИ.
+    </p>
+    <div class="hero-actions">
+      <a class="btn accent" href="https://t.me/Annet_Shine">Написать в Telegram <span class="arrow">→</span></a>
+      <a class="btn" href="mailto:buzoverova.anna@gmail.com">buzoverova.anna@gmail.com</a>
+    </div>
+  </section>
+</div>
+
+<div class="strip" aria-hidden="true">
+  <span>SEO <i>·</i></span><span>Яндекс.Бизнес <i>·</i></span><span>заявки <i>·</i></span><span>Google Apps Script <i>·</i></span><span>Claude Code <i>·</i></span><span>контент <i>·</i></span><span>аналитика <i>·</i></span><span>автоматизация <i>·</i></span>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="grid">
+      <div class="label">01 / Обо мне</div>
+      <div>
+        <p class="lead reveal">Я гуманитарий, который научился работать с технологиями. Не пишу код руками — ставлю задачу ИИ так, как ставила бы её команде, и проверяю результат.</p>
+        <div class="text reveal">
+          <p>В своём деле прошла весь путь: карточки в Яндекс.Бизнесе и на Картах, семантическое ядро по Wordstat, сайт курсов, объявления на Авито и во ВКонтакте. Дальше — приём заявок в Google-таблицу и таблица-«CRM», в которой видно, откуда пришёл клиент.</p>
+          <p>По образованию конфликтолог, училась менеджменту по персоналу, в 2021 году получила диплом интернет-маркетолога — а в 2026-м прошла курс по вайб-кодингу на Claude Code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div class="label">02 / Чем помогаю</div>
+      <ul class="help">
+        <li class="reveal">
+          <span class="n">01</span>
+          <div><b>Привожу клиентов из поиска</b><p>Локальное продвижение, карточки в Яндексе и Google, семантическое ядро, страницы под запросы.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="n">02</span>
+          <div><b>Строю поток заявок</b><p>Сайт, форма, обработка и учёт в таблице-«CRM»: видно источник, статус и историю клиента.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="n">03</span>
+          <div><b>Убираю рутину с помощью ИИ</b><p>Собираю агентов под повторяющиеся задачи: поиск, сбор данных, отчёты, контент.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="n">04</span>
+          <div><b>Считаю, а не угадываю</b><p>Смотрю на заявки и источники, прежде чем менять стратегию.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div class="label">03 / Кейсы</div>
+      <div>
+
+        <article class="case reveal">
+          <div class="num">01</div>
+          <div>
+            <h3>Продвижение студии «Ева»</h3>
+            <dl>
+              <dt>Задача</dt><dd>Приводить клиентов на услуги и обучение без агентства и бюджета на рекламу.</dd>
+              <dt>Что сделала</dt><dd>Сайт курсов, семантическое ядро по Яндекс.Wordstat, страницы под запросы. Полностью оформила карточки в Яндекс.Бизнесе и на Картах, зарегистрировала организацию в Яндексе и Google. Размещала объявления на Авито и во ВКонтакте, разбирала конкурентов и собирала УТП.</dd>
+              <dt>Результат</dt><dd>Основной поток клиентов на обучение и курсы приходит из локального поиска и карточек.</dd>
+            </dl>
+            <div class="tags"><span>SEO</span><span>Яндекс.Бизнес</span><span>Яндекс.Карты</span><span>Авито</span><span>ВКонтакте</span></div>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <div class="num">02</div>
+          <div>
+            <h3>CRM без платных сервисов</h3>
+            <dl>
+              <dt>Задача</dt><dd>Собирать клиентскую базу и статусы заявок, не покупая CRM.</dd>
+              <dt>Что сделала</dt><dd>Связала форму на сайте с Google-таблицей через Google Apps Script. В таблице — клиенты, источник заявки и статус: от первого обращения до оплаты.</dd>
+              <dt>Результат</dt><dd>Заявки не теряются, видно источник и этап воронки. Система работает без подписки и настройщика.</dd>
+            </dl>
+            <div class="tags"><span>Google Apps Script</span><span>Google Таблицы</span><span>HTML</span></div>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <div class="num">03</div>
+          <div>
+            <h3>Команда ИИ-агентов для поиска работы</h3>
+            <dl>
+              <dt>Задача</dt><dd>Просматривать десятки вакансий каждый день и не тонуть в них.</dd>
+              <dt>Что сделала</dt><dd>Собрала пайплайн из пяти субагентов и скилла-оркестратора: агенты собирают вакансии, оценивают по требованиям, раскладывают в Google-таблицу. Синхронизация автоматическая, через Apps Script.</dd>
+              <dt>Результат</dt><dd>Вакансии приходят уже отобранными и отсортированными — я смотрю только то, что подходит.</dd>
+            </dl>
+            <div class="tags"><span>Claude Code</span><span>ИИ-агенты</span><span>Apps Script</span><span>Google Таблицы</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div class="label">04 / Опыт и учёба</div>
+      <div class="facts">
+        <div>
+          <h3>Опыт</h3>
+          <div class="fact">
+            <div class="when">2016 — сейчас</div>
+            <div class="what">Ногтевая студия «Ева»</div>
+            <div class="where">Владелица, мастер, преподаватель · Северск · ИП с 2020</div>
+          </div>
+          <div class="fact">
+            <div class="when">2026</div>
+            <div class="what">Zerocoder</div>
+            <div class="where">Вайб-кодинг на Claude Code, 36 часов · сертификат</div>
+          </div>
+          <div class="fact">
+            <div class="when">2007 — 2009</div>
+            <div class="what">Очистные сооружения, Томск</div>
+            <div class="where">Инженер-микробиолог, до этого оператор · анализы, отчётность, руководство сменой</div>
+          </div>
+          <div class="fact">
+            <div class="when">2010 — 2011</div>
+            <div class="what">Продавец</div>
+            <div class="where">Торговый отдел продуктового магазина</div>
+          </div>
+        </div>
+        <div>
+          <h3>Образование</h3>
+          <div class="fact">
+            <div class="when">2021</div>
+            <div class="what">«Интернет-маркетолог»</div>
+            <div class="where">Школа маркетинга ProEnter · переподготовка, диплом</div>
+          </div>
+          <div class="fact">
+            <div class="when">2015</div>
+            <div class="what">Конфликтология</div>
+            <div class="where">РГСУ, Москва · бакалавр</div>
+          </div>
+          <div class="fact">
+            <div class="when">2011</div>
+            <div class="what">Менеджер по персоналу</div>
+            <div class="where">РГСУ, Москва · переподготовка</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div class="label">05 / Инструменты</div>
+      <div>
+        <div class="tools reveal">
+          <span>Claude Code</span><span>Google Apps Script</span><span>Google Таблицы</span>
+          <span>HTML / CSS</span><span>Яндекс.Wordstat</span><span>Яндекс.Бизнес</span>
+          <span>Яндекс.Карты</span><span>Tilda</span><span>Авито</span><span>ВКонтакте</span>
+          <span>Анализ конкурентов</span><span>Контент</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="label" style="margin-bottom:22px">06 / Контакты</div>
+    <h2>Нужен маркетинг, <em>который можно проверить?</em></h2>
+    <div class="contact-links">
+      <a class="btn accent" href="https://t.me/Annet_Shine">Telegram <span class="arrow">→</span></a>
+      <a class="btn" href="tel:+79528012211">+7 952 801-22-11</a>
+      <a class="btn" href="mailto:buzoverova.anna@gmail.com">buzoverova.anna@gmail.com</a>
+    </div>
+    <p class="contact-note">Северск, работаю удалённо. Готова к командировкам.</p>
+  </section>
+
+  <footer>
+    <span>© 2026 Анна Бузоверова</span>
+    <span>Северск · удалённо</span>
+  </footer>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
